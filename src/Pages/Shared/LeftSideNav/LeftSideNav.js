@@ -10,7 +10,6 @@ const LeftSideNav = () => {
          .then((data) => setCategories(data));
    }, []);
 
-   console.log(categories);
    return (
       <div>
          <h4>All Categories {categories.length}</h4>

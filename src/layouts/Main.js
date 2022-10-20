@@ -18,7 +18,7 @@ const Main = () => {
                <Col lg="7">
                   <Outlet />
                </Col>
-               <Col lg="3">
+               <Col lg="3" className="">
                   <RightSideNav />
                </Col>
             </Row>
