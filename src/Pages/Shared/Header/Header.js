@@ -7,7 +7,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Header = () => {
-   const { user } = useContext(AuthContext);
+   const { user, logOut } = useContext(AuthContext);
+
+   const handleLogOut = () => {
+      logOut()
+         .then(() => {})
+         .catch((error) => console.log(error));
+   };
+
    return (
       <div>
          <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-4">
@@ -31,9 +38,24 @@ const Header = () => {
                      </NavDropdown>
                   </Nav>
                   <Nav>
-                     <Nav.Link href="#deets">{user}</Nav.Link>
-                     <Nav.Link eventKey={2} href="#memes">
-                        Dank memes
+                     <Nav.Link>
+                        {user?.uid ? (
+                           <>
+                              <span>{user?.displayName}</span>
+                              <button onClick={handleLogOut} className="btn btn-primary ms-2">
+                                 Logout
+                              </button>
+                           </>
+                        ) : (
+                           <>
+                              <Link to="/login" className="text-decoration-none">
+                                 Login
+                              </Link>
+                              <Link to="/register" className="text-decoration-none ms-3">
+                                 Register
+                              </Link>
+                           </>
+                        )}
                      </Nav.Link>
                   </Nav>
                </Navbar.Collapse>
