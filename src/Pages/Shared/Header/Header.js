@@ -43,12 +43,15 @@ const Header = () => {
                         {user?.uid ? (
                            <>
                               <span className="fw-bold text-black">{user?.displayName}</span>
-                              <Image
-                                 roundedCircle
-                                 src={user?.photoURL}
-                                 style={{ height: "40px", width: "40px" }}
-                                 className="ms-2 me-4"
-                              />
+                              <Link to="/profile">
+                                 <Image
+                                    roundedCircle
+                                    src={user?.photoURL}
+                                    style={{ height: "40px", width: "40px" }}
+                                    className="ms-2 me-4"
+                                 />
+                              </Link>
+
                               <button onClick={handleLogOut} className="btn btn-primary ms-2">
                                  Logout
                               </button>
