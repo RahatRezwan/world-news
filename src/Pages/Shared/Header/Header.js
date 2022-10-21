@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -41,7 +42,13 @@ const Header = () => {
                      <Nav.Link>
                         {user?.uid ? (
                            <>
-                              <span>{user?.displayName}</span>
+                              <span className="fw-bold text-black">{user?.displayName}</span>
+                              <Image
+                                 roundedCircle
+                                 src={user?.photoURL}
+                                 style={{ height: "40px", width: "40px" }}
+                                 className="ms-2 me-4"
+                              />
                               <button onClick={handleLogOut} className="btn btn-primary ms-2">
                                  Logout
                               </button>
