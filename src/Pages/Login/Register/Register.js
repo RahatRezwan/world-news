@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
@@ -23,6 +24,7 @@ const Register = () => {
             form.reset();
             handleUpdateProfile(name, imageUrl);
             handleEmailVerification();
+            toast.success("Please Verify Your Email Address.");
          })
          .catch((error) => {
             console.log(error);
@@ -41,9 +43,7 @@ const Register = () => {
    /* send email verification */
    const handleEmailVerification = () => {
       verifyEmail()
-         .then(() => {
-            console.log("Email verification send");
-         })
+         .then(() => {})
          .catch((e) => console.log(e));
    };
 

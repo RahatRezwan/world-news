@@ -34,7 +34,7 @@ const News = () => {
                </div>
             </div>
             <Card.Text>
-               <p>{details}</p>
+               <>{details}</>
             </Card.Text>
          </Card.Body>
       </Card>

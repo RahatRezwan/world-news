@@ -39,7 +39,7 @@ const Header = () => {
                      </NavDropdown>
                   </Nav>
                   <Nav>
-                     <Nav.Link>
+                     <div>
                         {user?.uid ? (
                            <>
                               <span className="fw-bold text-black">{user?.displayName}</span>
@@ -63,7 +63,7 @@ const Header = () => {
                               </Link>
                            </>
                         )}
-                     </Nav.Link>
+                     </div>
                   </Nav>
                </Navbar.Collapse>
             </Container>
